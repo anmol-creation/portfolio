@@ -24,6 +24,16 @@ cloudinary.config({
 // API Endpoint to fetch sketches
 app.get('/api/sketches', async (req, res) => {
   try {
+    // Check for placeholder keys to prevent crash and return mock data for verification
+    if (process.env.CLOUDINARY_API_KEY === 'your_api_key_here') {
+       console.log('Running in MOCK mode due to placeholder keys.');
+       return res.json([
+           { public_id: 'mock_sketch_1', format: 'jpg' },
+           { public_id: 'mock_sketch_2', format: 'jpg' },
+           { public_id: 'mock_sketch_3', format: 'jpg' }
+       ]);
+    }
+
     // Fetch images from the 'Sketches' folder
     // Uses Search API (or Admin API resources method)
     // Using Search API is more flexible for filtering by folder
@@ -39,10 +49,6 @@ app.get('/api/sketches', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch images from Cloudinary' });
   }
 });
-
-// Fallback for SPA routing if needed (though this is a static site structure)
-// Since we are serving static files, we might want to redirect unknown routes to index.html or 404
-// For now, let's just listen.
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
