@@ -38,7 +38,7 @@ To run this project locally, you'll need Node.js installed on your machine.
     CLOUDINARY_CLOUD_NAME=your_cloud_name
     CLOUDINARY_API_KEY=your_api_key
     CLOUDINARY_API_SECRET=your_api_secret
-    PORT=3000
+    PORT=3001
     ```
 
     > **⚠️ IMPORTANT:** You must manually replace `your_cloud_name`, `your_api_key`, and `your_api_secret` with your actual Cloudinary credentials. The application will **not** fetch images without them.
@@ -50,7 +50,7 @@ To run this project locally, you'll need Node.js installed on your machine.
     npm start
     ```
 
-    The server will start on `http://localhost:3000`. Open your browser and navigate to this URL to view the site.
+    The server will start on `http://localhost:3001`. Open your browser and navigate to this URL to view the site.
 
 ## 📂 Project Structure
 
