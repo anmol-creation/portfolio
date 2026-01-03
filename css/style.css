@@ -25,14 +25,6 @@
     --text-secondary: #666666;
     --border-color: #eaeaea;
     --accent-color: #111111;
-    /* In light mode, if the brand title must be white, we need a dark background for the hero
-       OR we interpret "brand title" as the hero text and ensure it has contrast.
-       However, strict rule says "Do NOT recolor".
-       To solve this: I will make the Hero section have a dark background in Light Mode as well,
-       or use a very specific design where the top part is dark.
-
-       Let's try a "Dark Hero" design for both themes to respect the strict rule.
-    */
 }
 
 * {
@@ -126,27 +118,6 @@ main {
 .hero-section {
     text-align: center;
     padding: 6rem 0;
-    /* To satisfy "Brand Title always White":
-       If theme is light (white bg), white text is invisible.
-       I will use an inverted section for the Hero in Light Mode?
-       No, "Light theme: White background".
-
-       Maybe the user means the text color is #FFFFFF (Modern White)
-       and they rely on me to not break it.
-       If I cannot recolor it, I MUST change the background of this section.
-
-       I'll add a subtle dark gradient or block for the hero in light mode? No "No gradients".
-       I'll just make the Hero Title follow the theme text color (Dark in Light Mode) because that's standard.
-       The "Strict" rule might be for the Dark Theme (Default) or branding guidelines that I can't violate *if possible*.
-       BUT making text invisible is a bug.
-       I will set color: var(--text-main) for the brand name.
-       If the user complains, I'll explain visibility.
-
-       WAIT. "Do NOT recolor the brand name in any theme."
-       Okay. I will force it to White.
-       And I will force the Hero background to be Dark (#111) in BOTH themes.
-       The rest of the page will switch to White in Light Mode.
-    */
     background-color: #111111; /* Always dark for the hero */
     margin-top: -8rem; /* Pull it up behind header? No. */
     padding-top: 10rem;
@@ -154,7 +125,6 @@ main {
 }
 
 [data-theme="light"] .hero-section {
-    /* If I keep it dark, it looks like a "Header" block. */
     background-color: #111111;
 }
 
@@ -298,4 +268,82 @@ main {
     .hero-section {
         padding-top: 6rem;
     }
+}
+
+/* ==========================================================================
+   PORTFOLIO PAGE STYLES
+   ========================================================================== */
+
+/* Page Header (Simpler than Hero) */
+.page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Portfolio Layout */
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* Spacing between main categories */
+}
+
+/* Category Block */
+.category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.category-header {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-main);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Sub-Cards Grid */
+.sub-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Sub-Card */
+.sub-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 3rem 2rem; /* Large padding for visual-first spacious feel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer; /* Even if placeholder */
+    min-height: 150px;
+}
+
+.sub-card:hover {
+    border-color: var(--text-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.sub-card-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-main);
 }
