@@ -1,0 +1,79 @@
+/* ==========================================================================
+   PORTFOLIO PAGE STYLES
+   ========================================================================== */
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Portfolio Layout */
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* Spacing between main categories */
+}
+
+/* Category Block */
+.category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.category-header {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-main);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Sub-Cards Grid */
+.sub-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Sub-Card */
+.sub-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 3rem 2rem; /* Large padding for visual-first spacious feel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer; /* Even if placeholder */
+    min-height: 150px;
+    text-decoration: none; /* Ensure no underline */
+    color: inherit;
+}
+
+.sub-card:hover {
+    border-color: var(--text-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.sub-card-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-main);
+}
