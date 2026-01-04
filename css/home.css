@@ -147,3 +147,11 @@
         padding-top: 6rem;
     }
 }
+/* Header override for Homepage (Dark Hero Background) */
+.header .brand-logo {
+    color: #ffffff !important;
+}
+
+.header .theme-toggle {
+    color: #ffffff !important;
+}
