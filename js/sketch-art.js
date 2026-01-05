@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.querySelector('.lightbox-close');
 
     // CONFIGURATION
-    const CLOUD_NAME = 'daxgt0erj';
+    const CLOUD_NAME = 'daxgt0qfj';
 
     // Watermark Configuration
     // l_text:<font_family>:<font_size>:<text>,co_<color>,o_<opacity>
