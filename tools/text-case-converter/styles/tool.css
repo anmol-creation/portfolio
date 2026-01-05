@@ -1,0 +1,53 @@
+#tool-container {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.tool-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--tool-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+textarea[readonly] {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: default;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.8;
+}

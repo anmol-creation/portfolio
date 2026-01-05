@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Case Converter - UT.ac</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/tool.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div id="header-container">
+      <!-- Will be loaded via JS or simple static here since it's the landing -->
+      <header class="tool-header">
+        <h1>Text Case Converter</h1>
+      </header>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-container" id="cta-section">
+      <button id="use-tool-btn" class="btn btn-primary cta-button">[ Use Tool ]</button>
+    </div>
+
+    <!-- Explanation Section -->
+    <section class="explanation">
+      <h2>About This Tool</h2>
+      <p>
+        Convert your text case easily with this clean and fast tool. Whether you need to fix accidental caps lock usage, format a title properly, or just randomize text for fun, this tool handles it all instantly.
+      </p>
+      <p>
+        Yeh tool Hinglish aur English dono languages ke liye perfectly kaam karta hai. Just text paste karein aur button click karein—koi complex settings nahi, bas simple conversion.
+      </p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Lightning fast conversion</li>
+        <li>Preserves emojis and special symbols</li>
+        <li>Works completely offline in your browser</li>
+        <li>No data tracking or storage</li>
+      </ul>
+
+      <h3>Available Functions</h3>
+      <ul>
+        <li><strong>Uppercase:</strong> CONVERT EVERYTHING TO CAPITALS.</li>
+        <li><strong>Lowercase:</strong> convert everything to small letters.</li>
+        <li><strong>Title Case:</strong> Capitalize The First Letter Of Each Word.</li>
+        <li><strong>Sentence Case:</strong> Capitalize the first letter of sentences.</li>
+        <li><strong>Toggle Case:</strong> iNVERT tHE cASE oF eACH lETTER.</li>
+      </ul>
+    </section>
+
+    <!-- Ads Placeholder -->
+    <div class="ads-placeholder" style="margin-top: 2rem; padding: 1rem; background: rgba(0,0,0,0.02); text-align: center; border: 1px dashed var(--border-color); color: var(--text-color);">
+      [ Ad Space - Securely placed away from tool ]
+    </div>
+
+    <!-- Tool Container (Hidden by default) -->
+    <div id="tool-container" class="hidden"></div>
+
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

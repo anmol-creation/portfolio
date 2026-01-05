@@ -1,0 +1,23 @@
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .tool-layout {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .action-buttons-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .utility-buttons {
+    justify-content: space-between;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
