@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "asset_id": "2b6680683e46a7902fda4d5857cff6cc",
+    "public_id": "Brown_and_Beige_Coffee_Cafe_Promotional_Poster_20250902_172032_0000_page-0001_wmuyeq",
+    "asset_folder": "Posters",
+    "filename": "Brown_and_Beige_Coffee_Cafe_Promotional_Poster_20250902_172032_0000_page-0001_wmuyeq",
+    "display_name": "Brown_and_Beige_Coffee_Cafe_Promotional_Poster_20250902_172032_0000_page-0001_wmuyeq",
+    "format": "jpg",
+    "version": 1766911409,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:43:29+00:00",
+    "uploaded_at": "2025-12-28T08:43:29+00:00",
+    "bytes": 4816464,
+    "backup_bytes": 0,
+    "width": 2480,
+    "height": 3508,
+    "aspect_ratio": 0.70696,
+    "pixels": 8699840,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911409/Brown_and_Beige_Coffee_Cafe_Promotional_Poster_20250902_172032_0000_page-0001_wmuyeq.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911409/Brown_and_Beige_Coffee_Cafe_Promotional_Poster_20250902_172032_0000_page-0001_wmuyeq.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "97cd736b316b10bd2d8b9ba5dc214150",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
+    "asset_id": "f065f84a426377fb0d8cf1fefdc6fb7b",
+    "public_id": "BIG_BUNS._JUICY_PATTIES.__20250923_105053_0000_page-0001_xxqjcn",
+    "asset_folder": "Posters",
+    "filename": "BIG_BUNS._JUICY_PATTIES.__20250923_105053_0000_page-0001_xxqjcn",
+    "display_name": "BIG_BUNS._JUICY_PATTIES.__20250923_105053_0000_page-0001_xxqjcn",
+    "format": "jpg",
+    "version": 1766911408,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:43:28+00:00",
+    "uploaded_at": "2025-12-28T08:43:28+00:00",
+    "bytes": 1576580,
+    "backup_bytes": 0,
+    "width": 1688,
+    "height": 2110,
+    "aspect_ratio": 0.8,
+    "pixels": 3561680,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911408/BIG_BUNS._JUICY_PATTIES.__20250923_105053_0000_page-0001_xxqjcn.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911408/BIG_BUNS._JUICY_PATTIES.__20250923_105053_0000_page-0001_xxqjcn.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "2a3cb7bf50022ef6c136c92908c4ff6d",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  }
+]

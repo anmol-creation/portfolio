@@ -1,1 +1,177 @@
-[]
+[
+  {
+    "asset_id": "49348060b3282e7839117f61e9b78d1a",
+    "public_id": "Inter_20251225_074814_0000_ux1ufo",
+    "asset_folder": "Banners",
+    "filename": "Inter_20251225_074814_0000_ux1ufo",
+    "display_name": "Inter_20251225_074814_0000_ux1ufo",
+    "format": "jpg",
+    "version": 1766911143,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:39:03+00:00",
+    "uploaded_at": "2025-12-28T08:39:03+00:00",
+    "bytes": 187346,
+    "backup_bytes": 0,
+    "width": 3780,
+    "height": 1890,
+    "aspect_ratio": 2,
+    "pixels": 7144200,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911143/Inter_20251225_074814_0000_ux1ufo.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911143/Inter_20251225_074814_0000_ux1ufo.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "27cf04de8d0f6da9eef9badb8827d005",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
+    "asset_id": "b5195140668c61044df9d7f0fa9f0d9e",
+    "public_id": "Copy_of_Inter_20251226_073304_0000_t8appf",
+    "asset_folder": "Banners",
+    "filename": "Copy_of_Inter_20251226_073304_0000_t8appf",
+    "display_name": "Copy_of_Inter_20251226_073304_0000_t8appf",
+    "format": "jpg",
+    "version": 1766911148,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:39:08+00:00",
+    "uploaded_at": "2025-12-28T08:39:08+00:00",
+    "bytes": 338311,
+    "backup_bytes": 0,
+    "width": 3780,
+    "height": 1890,
+    "aspect_ratio": 2,
+    "pixels": 7144200,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911148/Copy_of_Inter_20251226_073304_0000_t8appf.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911148/Copy_of_Inter_20251226_073304_0000_t8appf.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "4bcb347378fa3a789c19015b241cd7b9",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
+    "asset_id": "3edcc1a0b1da3a9ad3e051a3f61692db",
+    "public_id": "Copy_of_Copy_of_2_20251224_144818_0000_i1ln5g",
+    "asset_folder": "Banners",
+    "filename": "Copy_of_Copy_of_2_20251224_144818_0000_i1ln5g",
+    "display_name": "Copy_of_Copy_of_2_20251224_144818_0000_i1ln5g",
+    "format": "jpg",
+    "version": 1766911151,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:39:11+00:00",
+    "uploaded_at": "2025-12-28T08:39:11+00:00",
+    "bytes": 541068,
+    "backup_bytes": 0,
+    "width": 3780,
+    "height": 1890,
+    "aspect_ratio": 2,
+    "pixels": 7144200,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911151/Copy_of_Copy_of_2_20251224_144818_0000_i1ln5g.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911151/Copy_of_Copy_of_2_20251224_144818_0000_i1ln5g.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "7e3ce5a498e709085de28ed0480dd6cf",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
+    "asset_id": "ab11213cdc934a6d7968c01334f5747e",
+    "public_id": "Copy_of_2_20251224_133824_0000_docpai",
+    "asset_folder": "Banners",
+    "filename": "Copy_of_2_20251224_133824_0000_docpai",
+    "display_name": "Copy_of_2_20251224_133824_0000_docpai",
+    "format": "jpg",
+    "version": 1766911145,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:39:05+00:00",
+    "uploaded_at": "2025-12-28T08:39:05+00:00",
+    "bytes": 423134,
+    "backup_bytes": 0,
+    "width": 3780,
+    "height": 1890,
+    "aspect_ratio": 2,
+    "pixels": 7144200,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911145/Copy_of_2_20251224_133824_0000_docpai.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911145/Copy_of_2_20251224_133824_0000_docpai.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "9cf904a5e51dce52cea694e1d848f666",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
+    "asset_id": "caa75ff58fcd53f0df0235cd456559d3",
+    "public_id": "2_20251223_141625_0000_n71pri",
+    "asset_folder": "Banners",
+    "filename": "2_20251223_141625_0000_n71pri",
+    "display_name": "2_20251223_141625_0000_n71pri",
+    "format": "jpg",
+    "version": 1766911144,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2025-12-28T08:39:04+00:00",
+    "uploaded_at": "2025-12-28T08:39:04+00:00",
+    "bytes": 345317,
+    "backup_bytes": 0,
+    "width": 3780,
+    "height": 1890,
+    "aspect_ratio": 2,
+    "pixels": 7144200,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1766911144/2_20251223_141625_0000_n71pri.jpg",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1766911144/2_20251223_141625_0000_n71pri.jpg",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "4b86f63c3f3c4800a29057b76f53fac0",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  }
+]
