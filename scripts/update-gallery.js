@@ -48,7 +48,8 @@ async function fetchAndSaveGallery(folderName, outputFilename) {
 
 async function generateAllGalleries() {
     await fetchAndSaveGallery('Sketches', 'sketches.json');
-    await fetchAndSaveGallery('Banners & Posters', 'banners-posters.json');
+    await fetchAndSaveGallery('Banners', 'banners.json');
+    await fetchAndSaveGallery('Posters', 'posters.json');
 }
 
 generateAllGalleries();
