@@ -10,19 +10,23 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-async function generateGalleryData() {
+async function fetchAndSaveGallery(folderName, outputFilename) {
   try {
-    console.log('Fetching images from Cloudinary folder: Sketches...');
+    console.log(`Fetching images from Cloudinary folder: ${folderName}...`);
 
-    // Fetch images from the 'Sketches' folder
+    // Fetch images from the specified folder
+    // Note: Cloudinary folder search needs exact string match
+    // If folder name contains spaces, it should be wrapped in quotes
+    const searchExpression = `folder:"${folderName}"`;
+
     const result = await cloudinary.search
-      .expression('folder:Sketches')
+      .expression(searchExpression)
       .sort_by('public_id', 'desc')
       .max_results(100)
       .execute();
 
     const resources = result.resources;
-    console.log(`Found ${resources.length} images.`);
+    console.log(`Found ${resources.length} images in ${folderName}.`);
 
     // Ensure data directory exists
     const dataDir = path.join(__dirname, '../data');
@@ -31,15 +35,20 @@ async function generateGalleryData() {
     }
 
     // Write to JSON file
-    const outputPath = path.join(dataDir, 'sketches.json');
+    const outputPath = path.join(dataDir, outputFilename);
     fs.writeFileSync(outputPath, JSON.stringify(resources, null, 2));
 
     console.log(`Successfully saved gallery data to ${outputPath}`);
 
   } catch (error) {
-    console.error('Error generating gallery data:', error);
-    process.exit(1);
+    console.error(`Error generating gallery data for ${folderName}:`, error);
+    // Don't exit process here so other galleries can attempt to load
   }
 }
 
-generateGalleryData();
+async function generateAllGalleries() {
+    await fetchAndSaveGallery('Sketches', 'sketches.json');
+    await fetchAndSaveGallery('Banners & Posters', 'banners-posters.json');
+}
+
+generateAllGalleries();
