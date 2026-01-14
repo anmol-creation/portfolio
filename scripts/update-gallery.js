@@ -50,6 +50,10 @@ async function generateAllGalleries() {
     await fetchAndSaveGallery('Sketches', 'sketches.json');
     await fetchAndSaveGallery('Banners', 'banners.json');
     await fetchAndSaveGallery('Posters', 'posters.json');
+    await fetchAndSaveGallery('Portraits', 'portraits.json');
+    await fetchAndSaveGallery('Digital_art', 'digital_art.json');
+    await fetchAndSaveGallery('Logos', 'logos.json');
+    await fetchAndSaveGallery('Visiting_cards', 'visiting_cards.json');
 }
 
 generateAllGalleries();
