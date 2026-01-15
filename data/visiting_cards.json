@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "asset_id": "99afe26d68f801f042c1ae63d925c467",
+    "public_id": "Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121028_0001_asyomu",
+    "asset_folder": "Visiting_cards",
+    "filename": "Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121028_0001_asyomu",
+    "display_name": "Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121028_0001_asyomu",
+    "format": "png",
+    "version": 1768394616,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2026-01-14T12:43:36+00:00",
+    "uploaded_at": "2026-01-14T12:43:36+00:00",
+    "bytes": 37302,
+    "backup_bytes": 0,
+    "width": 1050,
+    "height": 600,
+    "aspect_ratio": 1.75,
+    "pixels": 630000,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1768394616/Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121028_0001_asyomu.png",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1768394616/Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121028_0001_asyomu.png",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "dea648f10b204a3b0494f4040b13b8e6",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
+    "asset_id": "60cace699d684c2557fab26bf999539d",
+    "public_id": "Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121027_0000_knf3ww",
+    "asset_folder": "Visiting_cards",
+    "filename": "Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121027_0000_knf3ww",
+    "display_name": "Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121027_0000_knf3ww",
+    "format": "png",
+    "version": 1768394616,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2026-01-14T12:43:36+00:00",
+    "uploaded_at": "2026-01-14T12:43:36+00:00",
+    "bytes": 30473,
+    "backup_bytes": 0,
+    "width": 1050,
+    "height": 600,
+    "aspect_ratio": 1.75,
+    "pixels": 630000,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1768394616/Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121027_0000_knf3ww.png",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1768394616/Grey_Black_Modern_Elegant_Name_Initials_Monogram_Business_Card_20250818_121027_0000_knf3ww.png",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "a55f6b23e7c9f0a45fa6370308f89ab9",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  }
+]
