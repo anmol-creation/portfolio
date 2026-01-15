@@ -1,12 +1,9 @@
 name: Update Gallery Data
 
 on:
-  # Run manually from GitHub Actions tab
   workflow_dispatch:
-  # Run every 6 hours
   schedule:
     - cron: '0 */6 * * *'
-  # Run when pushing to main branch (optional, to verify setup)
   push:
     branches:
       - main
@@ -15,19 +12,19 @@ jobs:
   update-gallery:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to commit the JSON file back to the repo
+      contents: write
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '16'
+        node-version: '18'
 
     - name: Install Dependencies
-      run: npm install cloudinary
+      run: npm install
 
     - name: Fetch Images and Generate JSON
       env:
@@ -36,10 +33,28 @@ jobs:
         CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
       run: node scripts/update-gallery.js
 
+    - name: Configure Git
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
     - name: Commit and Push Changes
       run: |
-        git config --global user.name 'GitHub Action'
-        git config --global user.email 'action@github.com'
-        git add data/sketches.json data/banners.json data/posters.json data/portraits.json data/digital_art.json data/logos.json data/visiting_cards.json package.json package-lock.json
-        # Only commit if there are changes
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update gallery data" && git push)
+        echo "Current git status:"
+        git status
+
+        echo "Adding all changes..."
+        git add -A
+
+        echo "Checking if there are changes to commit..."
+        if git diff --cached --quiet; then
+          echo "✅ No changes to commit"
+        else
+          echo "📝 Committing changes..."
+          git commit -m "Auto-update gallery data - $(date)"
+
+          echo "🚀 Pushing to repository..."
+          git push origin HEAD
+
+          echo "✅ Push completed successfully"
+        fi
