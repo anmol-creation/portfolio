@@ -70,6 +70,41 @@
     }
   },
   {
+    "asset_id": "ca09f46905ca53f47baaab618129dc7f",
+    "public_id": "FRESH_20260115_085335_0000_sjdp2l",
+    "asset_folder": "Logos",
+    "filename": "FRESH_20260115_085335_0000_sjdp2l",
+    "display_name": "FRESH_20260115_085335_0000_sjdp2l",
+    "format": "png",
+    "version": 1768496891,
+    "resource_type": "image",
+    "type": "upload",
+    "created_at": "2026-01-15T17:08:11+00:00",
+    "uploaded_at": "2026-01-15T17:08:11+00:00",
+    "bytes": 31063,
+    "backup_bytes": 0,
+    "width": 500,
+    "height": 500,
+    "aspect_ratio": 1,
+    "pixels": 250000,
+    "url": "http://res.cloudinary.com/daxgt0qfj/image/upload/v1768496891/FRESH_20260115_085335_0000_sjdp2l.png",
+    "secure_url": "https://res.cloudinary.com/daxgt0qfj/image/upload/v1768496891/FRESH_20260115_085335_0000_sjdp2l.png",
+    "status": "active",
+    "access_mode": "public",
+    "access_control": null,
+    "etag": "edcc69135cdb4be75579aa54c69b9080",
+    "created_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    },
+    "uploaded_by": {
+      "access_key": "163491883323495",
+      "custom_id": "agarwals334@gmail.com",
+      "external_id": "c9d041bd047cbcfbbbd51636f4a57e"
+    }
+  },
+  {
     "asset_id": "6195fd0cc7c296b9ff062fa9d84f73d4",
     "public_id": "Cream_Black_Typography_Loop_Brand_Logo_20250819_084519_0000_nmvqe3",
     "asset_folder": "Logos",
