@@ -35,6 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
             link: '#',
             dataSource: null,
             isDummy: true
+        },
+        {
+            id: 'events',
+            title: 'Events & Weddings',
+            link: '#',
+            dataSource: null,
+            isDummy: true
+        },
+        {
+            id: 'wildlife',
+            title: 'Wildlife & Pets',
+            link: '#',
+            dataSource: null,
+            isDummy: true
+        },
+        {
+            id: 'product',
+            title: 'Product & Food',
+            link: '#',
+            dataSource: null,
+            isDummy: true
         }
     ];
 
@@ -60,6 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
             'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
             'https://images.unsplash.com/photo-1469122312224-c5846569feb1?w=800&q=80',
             'https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=800&q=80'
+        ],
+        'events': [
+            'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80',
+            'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
+            'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
+            'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80',
+            'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80'
+        ],
+        'wildlife': [
+            'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=80',
+            'https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=800&q=80',
+            'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&q=80',
+            'https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=800&q=80',
+            'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=800&q=80'
+        ],
+        'product': [
+            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
+            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+            'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&q=80',
+            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',
+            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&q=80'
         ]
     };
 
