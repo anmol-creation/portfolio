@@ -140,11 +140,10 @@
 }
 
 .lightbox-img {
-    max-width: 95vw;
-    max-height: 95vh;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* Ensures the image fits without cropping or unnatural zoom */
+    max-width: 90vw;
+    max-height: 90vh;
+    /* Removing width/height auto helps flexbox shrink large images properly */
+    object-fit: contain;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
 }
