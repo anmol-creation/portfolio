@@ -140,10 +140,13 @@
 }
 
 .lightbox-img {
-    max-width: 90%;
-    max-height: 90vh;
+    max-width: 95vw;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ensures the image fits without cropping or unnatural zoom */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 .lightbox-close {
