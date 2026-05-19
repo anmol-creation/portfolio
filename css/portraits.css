@@ -44,6 +44,7 @@
     column-count: 3;
     column-gap: 2rem;
     padding-bottom: 4rem;
+    display: block; /* Important: Override inline style from JS if needed */
 }
 
 @media (max-width: 768px) {
