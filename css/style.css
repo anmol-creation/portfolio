@@ -63,8 +63,30 @@ a {
 
 .header-content {
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.header-top {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+}
+
+.header-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    width: 100%;
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
 }
 
 .brand-logo {
