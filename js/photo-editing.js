@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'color-grading', title: 'Color Grading', link: '#', dataSource: null, isDummy: true },
         { id: 'creative-edits', title: 'Creative Edits', link: '#', dataSource: null, isDummy: true },
         { id: 'ai-edits', title: 'AI Edits', link: '#', dataSource: null, isDummy: true },
-        { id: 'portraits', title: 'Portraits', link: '#', dataSource: null, isDummy: true },
-        { id: 'nature', title: 'Nature & Landscapes', link: '#', dataSource: null, isDummy: true },
-        { id: 'street', title: 'Street Photography', link: '#', dataSource: null, isDummy: true },
-        { id: 'events', title: 'Events & Weddings', link: '#', dataSource: null, isDummy: true },
-        { id: 'wildlife', title: 'Wildlife & Pets', link: '#', dataSource: null, isDummy: true },
-        { id: 'product', title: 'Product & Food', link: '#', dataSource: null, isDummy: true },
-        { id: 'macro', title: 'Macro & Details', link: '#', dataSource: null, isDummy: true }
+        { id: 'portraits', title: 'Portraits', link: 'portraits.html', dataSource: null, isDummy: true },
+        { id: 'nature', title: 'Nature & Landscapes', link: 'nature.html', dataSource: null, isDummy: true },
+        { id: 'street', title: 'Street Photography', link: 'street.html', dataSource: null, isDummy: true },
+        { id: 'events', title: 'Events & Weddings', link: 'events.html', dataSource: null, isDummy: true },
+        { id: 'wildlife', title: 'Wildlife & Pets', link: 'wildlife.html', dataSource: null, isDummy: true },
+        { id: 'product', title: 'Product & Food', link: 'product.html', dataSource: null, isDummy: true },
+        { id: 'macro', title: 'Macro & Details', link: 'macro.html', dataSource: null, isDummy: true }
     ];
 
     // Dummy Image Placeholders (Unsplash Source API)

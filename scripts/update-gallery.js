@@ -21,6 +21,7 @@ async function fetchAndSaveGallery(folderName, outputFilename) {
 
     const result = await cloudinary.search
       .expression(searchExpression)
+      .with_field('tags')
       .sort_by('public_id', 'desc')
       .max_results(100)
       .execute();

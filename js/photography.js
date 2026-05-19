@@ -18,42 +18,42 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'nature',
             title: 'Nature & Landscapes',
-            link: '#',
+            link: 'nature.html',
             dataSource: null,
             isDummy: true
         },
         {
             id: 'street',
             title: 'Street Photography',
-            link: '#',
+            link: 'street.html',
             dataSource: null,
             isDummy: true
         },
         {
             id: 'macro',
             title: 'Macro & Details',
-            link: '#',
+            link: 'macro.html',
             dataSource: null,
             isDummy: true
         },
         {
             id: 'events',
             title: 'Events & Weddings',
-            link: '#',
+            link: 'events.html',
             dataSource: null,
             isDummy: true
         },
         {
             id: 'wildlife',
             title: 'Wildlife & Pets',
-            link: '#',
+            link: 'wildlife.html',
             dataSource: null,
             isDummy: true
         },
         {
             id: 'product',
             title: 'Product & Food',
-            link: '#',
+            link: 'product.html',
             dataSource: null,
             isDummy: true
         }
