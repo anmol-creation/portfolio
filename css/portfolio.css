@@ -46,7 +46,7 @@
 /* Sub-Cards Grid */
 .sub-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 1.5rem;
 }
 
@@ -73,7 +73,131 @@
 }
 
 .sub-card-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: var(--text-main);
+}
+
+/* Split Layout for Sub-Cards with Film Reel */
+.sub-card {
+    /* Reset padding from before */
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    /* Fixed height for the reel effect */
+    height: 400px;
+    display: flex;
+    flex-direction: row; /* Always amne-samne even on mobile */
+    align-items: center;
+    background-color: var(--bg-card);
+}
+
+.sub-card:hover {
+    border-color: var(--text-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-title-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 2;
+    /* Solid background to prevent overlap issues with tilted reel */
+    background: linear-gradient(to right, var(--bg-card) 60%, transparent);
+    height: 100%;
+}
+
+.sub-card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-align: center;
+}
+
+/* Film Reel Container */
+.card-reel-container {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* Mask to fade out top and bottom for smooth appearance */
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.reel-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Tilted look */
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1.2);
+    height: 200%; /* Extra height to ensure seamless scrolling */
+    width: 100%;
+    justify-content: center;
+}
+
+.reel-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 45%;
+}
+
+.reel-column img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.sub-card:hover .reel-column img {
+    filter: grayscale(0%);
+}
+
+/* Animations */
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); } /* Scrolls exactly half since content is duplicated */
+}
+
+@keyframes scrollDown {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+.scroll-up {
+    animation: scrollUp 20s linear infinite;
+}
+
+.scroll-down {
+    animation: scrollDown 20s linear infinite;
+}
+
+/* Pause animation on hover */
+.sub-card:hover .scroll-up,
+.sub-card:hover .scroll-down {
+    animation-play-state: paused;
+}
+
+/* Ensure single column layout for grid on very small screens,
+   but maintain the side-by-side flex inside the card. */
+@media (max-width: 600px) {
+    .sub-cards-grid {
+        grid-template-columns: 1fr; /* Full width on mobile */
+    }
+    .sub-card {
+        height: 350px;
+    }
+    .sub-card-title {
+        font-size: 1.25rem;
+    }
+    .reel-column img {
+        height: 120px;
+    }
 }
