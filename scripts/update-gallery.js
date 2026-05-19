@@ -51,10 +51,18 @@ async function generateAllGalleries() {
     await fetchAndSaveGallery('Sketches', 'sketches.json');
     await fetchAndSaveGallery('Banners', 'banners.json');
     await fetchAndSaveGallery('Posters', 'posters.json');
-    await fetchAndSaveGallery('Portraits', 'portraits.json');
     await fetchAndSaveGallery('Digital_art', 'digital_art.json');
     await fetchAndSaveGallery('Logos', 'logos.json');
     await fetchAndSaveGallery('Visiting_cards', 'visiting_cards.json');
+
+    // Photography Categories
+    await fetchAndSaveGallery('Portraits', 'portraits.json');
+    await fetchAndSaveGallery('Nature', 'nature.json');
+    await fetchAndSaveGallery('Street', 'street.json');
+    await fetchAndSaveGallery('Macro', 'macro.json');
+    await fetchAndSaveGallery('Events', 'events.json');
+    await fetchAndSaveGallery('Wildlife', 'wildlife.json');
+    await fetchAndSaveGallery('Product', 'product.json');
 }
 
 generateAllGalleries();
