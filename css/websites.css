@@ -9,7 +9,7 @@
     color: var(--text-main);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     transition: color 0.2s ease;
     position: relative;
 }
@@ -43,10 +43,13 @@
         order: 3;
         width: 100%;
         justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1rem;
-        border-top: 1px solid var(--border-color);
-        padding-top: 1rem;
+        gap: 2.5rem;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
     }
 }
 
