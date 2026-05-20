@@ -23,7 +23,7 @@
 
 /* Portfolio Layout */
 .portfolio-section {
-    display: flex;
+    display: 10px;
     flex-direction: column;
     gap: 4rem; /* Spacing between main categories */
 }
