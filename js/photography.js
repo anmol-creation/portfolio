@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categoriesContainer = document.getElementById('photography-categories');
 
+    // Toggle Elements
+    const layoutToggle = document.getElementById('layout-toggle');
+    const labelMixed = document.getElementById('label-mixed');
+    const labelCategorized = document.getElementById('label-categorized');
+    const mixedGallerySection = document.getElementById('mixed-gallery-section');
+    const mixedGalleryGrid = document.getElementById('mixed-gallery-grid');
+
     // Lightbox Elements
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -19,45 +26,48 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'nature',
             title: 'Nature & Landscapes',
             link: 'nature.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/nature.json',
+            isDummy: false
         },
         {
             id: 'street',
             title: 'Street Photography',
             link: 'street.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/street.json',
+            isDummy: false
         },
         {
             id: 'macro',
             title: 'Macro & Details',
             link: 'macro.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/macro.json',
+            isDummy: false
         },
         {
             id: 'events',
             title: 'Events & Weddings',
             link: 'events.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/events.json',
+            isDummy: false
         },
         {
             id: 'wildlife',
             title: 'Wildlife & Pets',
             link: 'wildlife.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/wildlife.json',
+            isDummy: false
         },
         {
             id: 'product',
             title: 'Product & Food',
             link: 'product.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/product.json',
+            isDummy: false
         }
     ];
+
+    const CLOUD_NAME = 'daxgt0qfj';
+    let allMixedResources = []; // Store all fetched data for the mixed view
 
     // Dummy Image Placeholders (Unsplash Source API)
     const dummyImages = {
@@ -167,11 +177,27 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const cat of categories) {
             if (cat.isDummy) {
                 createCategoryRow(cat, dummyImages[cat.id]);
+                // Add dummy images to mixed pool
+                const formattedDummies = dummyImages[cat.id].map(url => ({
+                    isDummy: true,
+                    url: url,
+                    fullUrl: url.replace('w=800', 'w=1600')
+                }));
+                allMixedResources = allMixedResources.concat(formattedDummies);
             } else {
                 try {
                     const response = await fetch(cat.dataSource);
                     if (!response.ok) throw new Error('Network response was not ok');
                     const data = await response.json();
+
+                    // Add real images to mixed pool
+                    const formattedReal = data.map(res => ({
+                        isDummy: false,
+                        url: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/q_auto,f_auto,w_800/${res.public_id}.${res.format}`,
+                        fullUrl: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/q_auto,f_auto/${res.public_id}.${res.format}`
+                    }));
+                    allMixedResources = allMixedResources.concat(formattedReal);
+
                     // Take up to 10 images for the horizontal scroll
                     createCategoryRow(cat, data.slice(0, 10));
                 } catch (error) {
@@ -179,7 +205,73 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
+
+        // Shuffle the mixed resources to create a truly mixed pinterest view
+        shuffleArray(allMixedResources);
     }
+
+    // Render Mixed View (Pinterest Style)
+    function renderMixedGallery() {
+        mixedGalleryGrid.innerHTML = ''; // Clear loading state
+
+        console.log("allMixedResources length: ", allMixedResources.length); // DEBUG
+
+        if (!allMixedResources || allMixedResources.length === 0) {
+            mixedGalleryGrid.innerHTML = '<div class="loading-state">No photos found.</div>';
+            return;
+        }
+
+        allMixedResources.forEach((res, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            // Stagger animation
+            item.style.animationDelay = `${(index % 10) * 50}ms`;
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.src = res.url;
+            img.alt = 'Photography Mixed Image';
+            img.loading = 'lazy';
+
+            // Lightbox Click
+            item.addEventListener('click', () => {
+                openLightbox(res.fullUrl);
+            });
+
+            item.appendChild(img);
+            mixedGalleryGrid.appendChild(item);
+        });
+    }
+
+    // Helper: Fisher-Yates Shuffle
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Toggle Listener
+    layoutToggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            // Switch to Mixed View
+            labelCategorized.classList.remove('active');
+            labelMixed.classList.add('active');
+            categoriesContainer.style.display = 'none';
+            mixedGallerySection.style.display = 'block';
+
+            // Render if empty
+            if (mixedGalleryGrid.children.length <= 1) { // includes loading div
+                renderMixedGallery();
+            }
+        } else {
+            // Switch to Categorized View
+            labelMixed.classList.remove('active');
+            labelCategorized.classList.add('active');
+            mixedGallerySection.style.display = 'none';
+            categoriesContainer.style.display = 'block';
+        }
+    });
 
     // Lightbox Logic
     function openLightbox(imgSrc) {

@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'color-grading', title: 'Color Grading', link: '#', dataSource: null, isDummy: true },
         { id: 'creative-edits', title: 'Creative Edits', link: '#', dataSource: null, isDummy: true },
         { id: 'ai-edits', title: 'AI Edits', link: '#', dataSource: null, isDummy: true },
-        { id: 'portraits', title: 'Portraits', link: 'portraits.html', dataSource: null, isDummy: true },
-        { id: 'nature', title: 'Nature & Landscapes', link: 'nature.html', dataSource: null, isDummy: true },
-        { id: 'street', title: 'Street Photography', link: 'street.html', dataSource: null, isDummy: true },
-        { id: 'events', title: 'Events & Weddings', link: 'events.html', dataSource: null, isDummy: true },
-        { id: 'wildlife', title: 'Wildlife & Pets', link: 'wildlife.html', dataSource: null, isDummy: true },
-        { id: 'product', title: 'Product & Food', link: 'product.html', dataSource: null, isDummy: true },
-        { id: 'macro', title: 'Macro & Details', link: 'macro.html', dataSource: null, isDummy: true }
+        { id: 'portraits', title: 'Portraits', link: 'portraits.html', dataSource: 'data/portraits.json', isDummy: false },
+        { id: 'nature', title: 'Nature & Landscapes', link: 'nature.html', dataSource: 'data/nature.json', isDummy: false },
+        { id: 'street', title: 'Street Photography', link: 'street.html', dataSource: 'data/street.json', isDummy: false },
+        { id: 'events', title: 'Events & Weddings', link: 'events.html', dataSource: 'data/events.json', isDummy: false },
+        { id: 'wildlife', title: 'Wildlife & Pets', link: 'wildlife.html', dataSource: 'data/wildlife.json', isDummy: false },
+        { id: 'product', title: 'Product & Food', link: 'product.html', dataSource: 'data/product.json', isDummy: false },
+        { id: 'macro', title: 'Macro & Details', link: 'macro.html', dataSource: 'data/macro.json', isDummy: false }
     ];
 
     // Dummy Image Placeholders (Unsplash Source API)
