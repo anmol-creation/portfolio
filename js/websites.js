@@ -1,25 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.getElementById('projects-grid');
+    const container = document.getElementById('websites-container');
 
     // Check if the element exists to avoid errors on other pages
-    if (!grid) return;
+    if (!container) return;
 
-    // Check if websites data is available
-    if (typeof websites === 'undefined' || !Array.isArray(websites)) {
+    // Check if categorized websites data is available
+    if (typeof websitesData === 'undefined') {
         console.error('Projects data is missing or invalid.');
-        grid.innerHTML = '<p style="color:var(--text-secondary); text-align:center; grid-column: 1/-1;">Failed to load projects. Please try again later.</p>';
+        container.innerHTML = '<p style="color:var(--text-secondary); text-align:center;">Failed to load projects. Please try again later.</p>';
         return;
     }
 
-    // Render cards
-    websites.forEach(project => {
+    // Function to render a single project card
+    function createProjectCard(project) {
         const card = document.createElement('div');
         card.className = 'project-card';
 
-        // Generate tech tags HTML
         const techTagsHtml = project.tech.slice(0, 4).map(t => `<span class="tech-tag">${t}</span>`).join('');
-
-        // Use a placeholder if image is missing
         const imageSrc = project.image || 'https://via.placeholder.com/600x400?text=No+Image';
 
         card.innerHTML = `
@@ -38,7 +35,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
+        return card;
+    }
 
-        grid.appendChild(card);
+    // Loop through each category and render its block
+    Object.keys(websitesData).forEach(categoryKey => {
+        const category = websitesData[categoryKey];
+
+        // Create category block
+        const categoryBlock = document.createElement('div');
+        categoryBlock.className = 'category-block';
+
+        // Category Header
+        categoryBlock.innerHTML = `
+            <h2 class="category-header">${category.title}</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem;">${category.description}</p>
+        `;
+
+        // Create grid for this category
+        const grid = document.createElement('div');
+        grid.className = 'projects-grid';
+
+        if (category.projects.length === 0) {
+            grid.innerHTML = '<p style="color:var(--text-secondary); grid-column: 1/-1;">More projects coming soon!</p>';
+        } else {
+            category.projects.forEach(project => {
+                grid.appendChild(createProjectCard(project));
+            });
+        }
+
+        categoryBlock.appendChild(grid);
+        container.appendChild(categoryBlock);
     });
 });
