@@ -19,43 +19,43 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'nature',
             title: 'Nature & Landscapes',
             link: 'nature.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/nature.json',
+            isDummy: false
         },
         {
             id: 'street',
             title: 'Street Photography',
             link: 'street.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/street.json',
+            isDummy: false
         },
         {
             id: 'macro',
             title: 'Macro & Details',
             link: 'macro.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/macro.json',
+            isDummy: false
         },
         {
             id: 'events',
             title: 'Events & Weddings',
             link: 'events.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/events.json',
+            isDummy: false
         },
         {
             id: 'wildlife',
             title: 'Wildlife & Pets',
             link: 'wildlife.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/wildlife.json',
+            isDummy: false
         },
         {
             id: 'product',
             title: 'Product & Food',
             link: 'product.html',
-            dataSource: null,
-            isDummy: true
+            dataSource: 'data/product.json',
+            isDummy: false
         }
     ];
 
