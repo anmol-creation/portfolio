@@ -19,6 +19,8 @@
 
       gtag('config', 'G-3565X5KNFD');
     </script>
+    <link rel="stylesheet" href="css/gallery-toggle.css">
+    <link rel="stylesheet" href="css/portraits.css">
 </head>
 <body>
     <header class="header">
@@ -44,13 +46,32 @@
             <div class="container">
                 <h1 class="page-title">Photography</h1>
                 <p class="page-subtitle">A collection of moments captured across various genres.</p>
+
+                <!-- View Toggle -->
+                <div class="view-controls" style="margin-top: 32px; justify-content: center;">
+                    <span class="view-label active" id="label-categorized">Categorized View</span>
+                    <label class="switch">
+                        <input type="checkbox" id="layout-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="view-label" id="label-mixed">Mixed View</span>
+                </div>
             </div>
         </section>
 
-        <!-- Categories Container -->
+        <!-- Categories Container (Default View) -->
         <div id="photography-categories">
             <!-- Dynamic rows will be injected here via JS -->
         </div>
+
+        <!-- Mixed Gallery Grid (Hidden Initially) -->
+        <section class="gallery-section" id="mixed-gallery-section" style="display: none;">
+            <div class="container" id="gallery-container">
+                <div id="mixed-gallery-grid" class="gallery-grid">
+                    <div class="loading-state">Loading gallery...</div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
