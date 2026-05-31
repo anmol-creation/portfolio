@@ -58,6 +58,9 @@ async function generateAllGalleries() {
     await fetchAndSaveGallery('Logos', 'logos.json');
     await fetchAndSaveGallery('Visiting_cards', 'visiting_cards.json');
 
+    // Digital Assets
+    await fetchAndSaveGallery('Wall_Art', 'wall-art.json');
+
     // Photography Categories
     await fetchAndSaveGallery('Portraits', 'portraits.json');
     await fetchAndSaveGallery('Nature', 'nature.json');
