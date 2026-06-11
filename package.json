@@ -6,8 +6,8 @@
     "update-gallery": "node scripts/update-gallery.js"
   },
   "dependencies": {
-    "cloudinary": "^2.0.0",
-    "dotenv": "^16.0.0"
+    "cloudinary": "^2.10.0",
+    "dotenv": "^16.6.1"
   },
   "author": "",
   "license": "ISC"
