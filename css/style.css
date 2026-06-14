@@ -145,3 +145,9 @@ main {
     font-size: 0.875rem;
     margin-top: auto;
 }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
