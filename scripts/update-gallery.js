@@ -14,19 +14,43 @@ async function fetchAndSaveGallery(folderName, outputFilename) {
   try {
     console.log(`Fetching images from Cloudinary folder: ${folderName}...`);
 
-    // Fetch images from the specified folder
+    // Fetch images from the specified folder and all sub-folders
     // Note: Cloudinary folder search needs exact string match
     // If folder name contains spaces, it should be wrapped in quotes
-    const searchExpression = `folder:"${folderName}"`;
+    const searchExpression = `folder:"${folderName}/*" OR folder:"${folderName}"`;
 
     const result = await cloudinary.search
       .expression(searchExpression)
-      .with_field('tags')
       .sort_by('public_id', 'desc')
       .max_results(100)
       .execute();
 
-    const resources = result.resources;
+    let resources = result.resources;
+
+    // Process resources to extract sub_category based on their folder structure
+    resources = resources.map(res => {
+      // res.folder contains the path, e.g., 'Visuals/Photography/Nature/Flower'
+      // target folderName is e.g., 'Visuals/Photography/Nature'
+      // we want to extract 'Flower' as sub_category
+      let subCategory = 'Uncategorized';
+
+      // We append '/' to folderName to match exact subfolders
+      const prefix = folderName + '/';
+
+      if (res.folder && res.folder.startsWith(prefix)) {
+        // e.g. "Visuals/Photography/Nature/Flower" -> "Flower"
+        const remainingPath = res.folder.substring(prefix.length);
+        const parts = remainingPath.split('/');
+        if (parts.length > 0 && parts[0] !== '') {
+          subCategory = parts[0];
+        }
+      }
+
+      return {
+        ...res,
+        sub_category: subCategory
+      };
+    });
     console.log(`Found ${resources.length} images in ${folderName}.`);
 
     // Ensure data directory exists
@@ -48,27 +72,32 @@ async function fetchAndSaveGallery(folderName, outputFilename) {
 }
 
 async function generateAllGalleries() {
-    await fetchAndSaveGallery('Sketches', 'sketches.json');
-    await fetchAndSaveGallery('Banners', 'banners.json');
-    await fetchAndSaveGallery('Posters', 'posters.json');
-    await fetchAndSaveGallery('Social_Posts', 'social-posts.json');
-    await fetchAndSaveGallery('Social_Stories', 'social-stories.json');
-    await fetchAndSaveGallery('Social_Thumbnails', 'social-thumbnails.json');
-    await fetchAndSaveGallery('Digital_art', 'digital_art.json');
-    await fetchAndSaveGallery('Logos', 'logos.json');
-    await fetchAndSaveGallery('Visiting_cards', 'visiting_cards.json');
+    // Art
+    await fetchAndSaveGallery('Art/Sketch Art', 'sketches.json');
+    await fetchAndSaveGallery('Art/Digital Art', 'digital_art.json');
+
+    // Design
+    await fetchAndSaveGallery('Design/Banners', 'banners.json');
+    await fetchAndSaveGallery('Design/Posters', 'posters.json');
+    await fetchAndSaveGallery('Design/Logos', 'logos.json');
+    await fetchAndSaveGallery('Design/Visiting Cards', 'visiting_cards.json');
+
+    // Social Media Design
+    await fetchAndSaveGallery('Social Media Design/Posts', 'social-posts.json');
+    await fetchAndSaveGallery('Social Media Design/Stories', 'social-stories.json');
+    await fetchAndSaveGallery('Social Media Design/Thumbnails', 'social-thumbnails.json');
 
     // Digital Assets
-    await fetchAndSaveGallery('Wall_Art', 'wall-art.json');
+    await fetchAndSaveGallery('Digital Assets/Wall Art', 'wall-art.json');
 
     // Photography Categories
-    await fetchAndSaveGallery('Portraits', 'portraits.json');
-    await fetchAndSaveGallery('Nature', 'nature.json');
-    await fetchAndSaveGallery('Street', 'street.json');
-    await fetchAndSaveGallery('Macro', 'macro.json');
-    await fetchAndSaveGallery('Events', 'events.json');
-    await fetchAndSaveGallery('Wildlife', 'wildlife.json');
-    await fetchAndSaveGallery('Product', 'product.json');
+    await fetchAndSaveGallery('Visuals/Photography/Portraits', 'portraits.json');
+    await fetchAndSaveGallery('Visuals/Photography/Nature', 'nature.json');
+    await fetchAndSaveGallery('Visuals/Photography/Street', 'street.json');
+    await fetchAndSaveGallery('Visuals/Photography/Macro', 'macro.json');
+    await fetchAndSaveGallery('Visuals/Photography/Events', 'events.json');
+    await fetchAndSaveGallery('Visuals/Photography/Wildlife', 'wildlife.json');
+    await fetchAndSaveGallery('Visuals/Photography/Product', 'product.json');
 }
 
 generateAllGalleries();
