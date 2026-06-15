@@ -103,27 +103,27 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Group resources by tag
-        // Since tags might not exist yet, we'll create a default "Uncategorized" group
-        // If a photo has multiple tags, we'll add it to the first tag's row for simplicity.
+        // Group resources by sub_category
+        // Since sub_category might not exist yet, we'll create a default "Uncategorized" group
+        //
         const groups = {};
 
-        // Define some expected mock categories for demonstration if tags are empty
-        // In real usage, this will dynamically create rows based on actual Cloudinary tags
+        // Define some expected mock categories for demonstration if sub_categories are empty
+        // In real usage, this will dynamically create rows based on actual Cloudinary sub-folders
         const dummyTags = ['Trees', 'Flowers', 'Leaves', 'Mountains', 'Waterfalls', 'Sunsets'];
 
         resources.forEach((res, index) => {
             let assignedTag = 'Uncategorized';
 
-            if (res.tags && res.tags.length > 0) {
-                // Use the first tag from Cloudinary
-                assignedTag = res.tags[0];
+            if (res.sub_category && res.sub_category !== "Uncategorized") {
+                // Use the sub_category from Cloudinary folder structure
+                assignedTag = res.sub_category;
             } else {
-                // Mock assignment for demonstration based on index if no tags exist
+                // Mock assignment for demonstration based on index if no sub_category exist
                 assignedTag = dummyTags[index % dummyTags.length];
             }
 
-            // Capitalize first letter of tag
+            // Capitalize first letter of sub_category
             assignedTag = assignedTag.charAt(0).toUpperCase() + assignedTag.slice(1);
 
             if (!groups[assignedTag]) {
