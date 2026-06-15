@@ -104,6 +104,10 @@ async function generateAllGalleries() {
     await fetchAndSaveGallery('AI Work/Photorealism', 'ai-photorealism.json');
     await fetchAndSaveGallery('AI Work/Graphic Design', 'ai-graphic-design.json');
     await fetchAndSaveGallery('AI Work/Hybrid Editing', 'ai-hybrid-editing.json');
+
+    // Web
+    await fetchAndSaveGallery('Websites', 'websites.json');
+    await fetchAndSaveGallery('UI/UX Design', 'ui-ux.json');
 }
 
 generateAllGalleries();

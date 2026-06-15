@@ -219,3 +219,35 @@
         height: 140px;
     }
 }
+
+/* Full Visual Card (No Title, Full Width Image Reel) */
+.full-visual-card {
+    height: 400px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+}
+
+.full-visual-card .card-reel-container {
+    width: 100%;
+    right: 0;
+    left: 0;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+
+.straight-wrapper {
+    /* No rotation, scale down slightly so it fits well */
+    transform: translate(-50%, -50%) scale(1);
+    /* Make columns wider to fill the space better */
+    gap: 1.5rem;
+}
+
+.straight-wrapper .reel-column img {
+    height: 250px; /* Longer images for web/ui preview feel */
+    border-radius: 6px;
+    object-position: top; /* Ensure top of website shows */
+}
