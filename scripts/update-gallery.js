@@ -98,6 +98,12 @@ async function generateAllGalleries() {
     await fetchAndSaveGallery('Visuals/Photography/Events', 'events.json');
     await fetchAndSaveGallery('Visuals/Photography/Wildlife', 'wildlife.json');
     await fetchAndSaveGallery('Visuals/Photography/Product', 'product.json');
+
+    // AI Work
+    await fetchAndSaveGallery('AI Work/Digital Art', 'ai-digital-art.json');
+    await fetchAndSaveGallery('AI Work/Photorealism', 'ai-photorealism.json');
+    await fetchAndSaveGallery('AI Work/Graphic Design', 'ai-graphic-design.json');
+    await fetchAndSaveGallery('AI Work/Hybrid Editing', 'ai-hybrid-editing.json');
 }
 
 generateAllGalleries();
