@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thumbnails - anmolcreations</title>
+    <title>AI Hybrid Editing - .ac</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/portraits.css">
-    <link rel="stylesheet" href="css/gallery-toggle.css">
+    <link rel="stylesheet" href="css/digital-art.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,8 +26,8 @@
                 <div class="header-top">
         <a href="index.html" class="brand-logo">.ac</a>
         <div class="header-actions">
-            <button id="ai-tools" class="theme-toggle" aria-label="AI Tools" title="AI Tools" onclick="window.location.href='ai-work.html'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            <button id="ai-tools" class="theme-toggle" aria-label="Original Work" title="Original Work" onclick="window.location.href='index.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
             </button>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                 <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -38,7 +37,7 @@
     </div>
     <hr class="header-divider">
     <div class="header-controls">
-        <a href="index.html" class="back-link">Back to Portfolio</a>
+        <a href="ai-work.html" class="back-link">Back to AI Gallery</a>
     </div>
 </div>
     </header>
@@ -46,31 +45,16 @@
     <main>
         <section class="gallery-header-section">
             <div class="container">
-                <h1 class="gallery-title">Thumbnails</h1>
-                <p class="gallery-subtitle">A collection of social media thumbnails.</p>
-
-                <!-- View Toggle -->
-                <div class="view-controls">
-                    <span class="view-label active" id="label-mixed">Mixed View</span>
-                    <label class="switch">
-                        <input type="checkbox" id="layout-toggle">
-                        <span class="slider"></span>
-                    </label>
-                    <span class="view-label" id="label-categorized">Categorized View</span>
-                </div>
+                <h1 class="gallery-title">AI Hybrid Editing</h1>
+                <p class="gallery-subtitle">Original works enhanced with generative AI.</p>
             </div>
         </section>
 
         <section class="gallery-section">
-            <div class="container" id="gallery-container">
-                <!-- Pinterest Grid (Default) -->
+            <div class="container">
                 <div id="gallery-grid" class="gallery-grid">
+                    <!-- Images will be injected here via JS -->
                     <div class="loading-state">Loading gallery...</div>
-                </div>
-
-                <!-- Netflix Style Rows (Hidden initially) -->
-                <div id="categorized-view" class="categorized-view-container" style="display: none;">
-                    <!-- Dynamic rows will be injected here -->
                 </div>
             </div>
         </section>
@@ -89,6 +73,6 @@
     </footer>
 
     <script src="js/theme.js"></script>
-    <script src="js/social-thumbnails.js"></script>
+    <script src="js/ai-hybrid-editing.js"></script>
 </body>
 </html>
