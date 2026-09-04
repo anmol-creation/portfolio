@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Dashboard - anmolcreations</title>
+    <title>Nature Photography & Botanical Sanctuary - .ac</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/photography.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/c5c8a33f4a.js" crossorigin="anonymous"></script>
 
     <!-- Google tracking code -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
@@ -16,81 +19,204 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-3565X5KNFD');
     </script>
-    <link rel="stylesheet" href="css/gallery-toggle.css">
-    <link rel="stylesheet" href="css/portraits.css">
 </head>
-<body>
-    <header class="header">
-        <div class="container header-content">
-                <div class="header-top">
-        <a href="https://anmolcreations.vercel.app/" class="brand-logo">.ac</a>
-        <div class="header-actions">
-            <button id="ai-tools" class="theme-toggle" aria-label="AI Tools" title="AI Tools" onclick="window.location.href='ai-work.html'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
-            </button>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
+<body class="botanical-theme">
+
+    <!-- DESKTOP NAVIGATION -->
+    <header class="botanical-desktop-nav">
+        <div class="nav-left">
+            <a href="https://anmolcreations.vercel.app/" class="nav-logo">.ac</a>
+            <span class="nav-tag">Pacific Northwest & Sub-Tropic Archive</span>
         </div>
-    </div>
-    <hr class="header-divider">
-    <nav class="header-nav">
-                <a href="https://anmolcreations.vercel.app/" class="nav-link">Home</a>
-                <a href="index.html#projects" class="nav-link">Projects</a>
-                <a href="https://anmolcreations.vercel.app/about.html" class="nav-link">About Me</a>
-            </nav>
-</div>
+        <nav class="nav-center">
+            <a href="#hero">Field Sanctuary</a>
+            <a href="#biomes">Biomes</a>
+            <a href="#praxis">Naturalist Praxis</a>
+            <a href="#acquire">Acquisitions</a>
+        </nav>
+        <div class="nav-right">
+            <span class="nav-counter">14 Botanical Plates • Anmol Agarwal Archive</span>
+            <a href="#acquire" class="btn-acquire">Acquire Plate</a>
+        </div>
     </header>
 
-    <main class="photography-dashboard">
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title">Photography</h1>
-                <p class="page-subtitle">A collection of moments captured across various genres.</p>
+    <!-- MOBILE NAVIGATION (TOP) -->
+    <header class="botanical-mobile-nav">
+        <a href="https://anmolcreations.vercel.app/" class="nav-logo">.ac</a>
+        <div class="mobile-nav-badges">
+            <span class="badge-tag">Naturalist Archive</span>
+            <span class="badge-indicator"><i class="fa-solid fa-leaf"></i> Flora Sens</span>
+        </div>
+    </header>
 
-                <!-- View Toggle -->
-                <div class="view-controls" style="margin-top: 32px; justify-content: center;">
-                    <span class="view-label active" id="label-categorized">Categorized View</span>
-                    <label class="switch">
-                        <input type="checkbox" id="layout-toggle">
-                        <span class="slider"></span>
-                    </label>
-                    <span class="view-label" id="label-mixed">Mixed View</span>
+    <main class="botanical-main">
+        <!-- HERO SPOTLIGHT -->
+        <section id="hero" class="hero-spotlight">
+            <!-- Mobile full-width / Desktop 2-column -->
+            <div class="hero-container">
+                <div class="hero-visual">
+                    <div class="water-chip">Specimen #NAT-00 • Spotlight Study</div>
+                    <img src="https://images.unsplash.com/photo-1550159930-40066082a4fc?w=1600&q=80" alt="The Dew Sphere & Micro Wanderer" class="hero-img">
+                    <div class="hero-overlay">
+                        <div class="hero-badges">
+                            <span>90mm Macro • f/2.8 • 1/320s • ISO 100</span>
+                            <span>Surface Water Tension 1:1</span>
+                        </div>
+                        <h1 class="hero-title">The Dew Sphere & Micro Wanderer</h1>
+                        <button class="btn-inspect"><i class="fa-solid fa-magnifying-glass"></i> Inspect 4K Botanical Details</button>
+                    </div>
+                </div>
+
+                <div class="hero-monograph">
+                    <div class="monograph-thumb">
+                        <img src="https://images.unsplash.com/photo-1507567794595-50e50d60d3fc?w=400&q=80" alt="Companion Specimen">
+                    </div>
+                    <div class="monograph-details">
+                        <h2>Field Monograph</h2>
+                        <ul class="meta-list">
+                            <li><span>Taxonomy</span>Crassula Ovata</li>
+                            <li><span>Atmosphere</span>Post-Monsoon Canopy Cloud</li>
+                            <li><span>Lens Rig</span>90mm Macro 1:1 Prime @ f/2.8</li>
+                            <li><span>Light Angle</span>28° Specular Backlight</li>
+                        </ul>
+                        <a href="#acquire" class="edition-link">View Edition Notes &rarr;</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Categories Container (Default View) -->
-        <div id="photography-categories">
-            <!-- Dynamic rows will be injected here via JS -->
-        </div>
+        <!-- INTERACTIVE VIEW DONGLE -->
+        <section class="view-controller-section">
+            <div class="dongle-wrapper">
+                <button id="btn-grid" class="dongle-btn active" aria-label="All Specimens Grid">
+                    <i class="fa-solid fa-border-all"></i> Unified Herbarium
+                </button>
+                <button id="btn-biomes" class="dongle-btn" aria-label="Living Biomes Rows">
+                    <i class="fa-solid fa-layer-group"></i> Living Biomes
+                </button>
+            </div>
+        </section>
 
-        <!-- Mixed Gallery Grid (Hidden Initially) -->
-        <section class="gallery-section" id="mixed-gallery-section" style="display: none;">
-            <div class="container" id="gallery-container">
-                <div id="mixed-gallery-grid" class="gallery-grid">
-                    <div class="loading-state">Loading gallery...</div>
+        <!-- GALLERY CONTAINER -->
+        <section id="gallery-container" class="gallery-section">
+
+            <!-- STATE 1: ALL SPECIMENS GRID -->
+            <div id="view-grid" class="view-state active">
+                <div class="category-pills mobile-only" id="mobile-filter-pills">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="herbarium-grid" id="herbarium-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- STATE 2: LIVING BIOMES (NETFLIX ROWS) -->
+            <div id="view-biomes" class="view-state hidden">
+                <div class="biomes-container" id="biomes-container">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NATURALIST PRAXIS (Methodology) -->
+        <section id="praxis" class="praxis-section">
+            <div class="section-header">
+                <h2>The Art of Living Light</h2>
+                <p>Methodology & Atmospheric Capture</p>
+            </div>
+
+            <div class="praxis-grid">
+                <div class="praxis-card">
+                    <div class="card-num">01</div>
+                    <h3>Patience in Micro-Ecologies</h3>
+                    <p>Observing dew meniscus surface tension and unhurried natural events. Waiting for the perfect interaction between light and microcosm.</p>
+                </div>
+                <div class="praxis-card">
+                    <div class="card-num">02</div>
+                    <h3>Natural Chromatic Fidelity</h3>
+                    <p>Capturing true organic pigments. Zero synthetic color manipulation ensures the anthocynanins and chlorophylls reflect their actual vibrance.</p>
+                </div>
+                <div class="praxis-card">
+                    <div class="card-num">03</div>
+                    <h3>Atmospheric Chiaroscuro</h3>
+                    <p>Embracing twilight horizons and nocturnal starlight. Highlighting the contrast between shadow and specular highlights in dense habitats.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACQUISITION PORTAL & FOOTER -->
+        <section id="acquire" class="acquisition-section">
+            <div class="acq-split">
+                <div class="acq-artist">
+                    <h2>Anmol Agarwal</h2>
+                    <p class="subtitle">Naturalist, Visual Storyteller, Founder of .ac</p>
+                    <p class="bio">Documenting the delicate architecture of the natural world through unmanipulated, high-fidelity light capture.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/anmolcreation" target="_blank"><i class="fa-brands fa-instagram"></i> @anmolcreation</a>
+                        <a href="https://instagram.com/anmolcreations" target="_blank"><i class="fa-brands fa-instagram"></i> @anmolcreations</a>
+                    </div>
+                </div>
+                <div class="acq-form-card">
+                    <h3>Fine Art Print Acquisition</h3>
+                    <p>310gsm German cotton rag archival prints.</p>
+                    <form id="inquiry-form" class="inquiry-form" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="collector@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Specimen</label>
+                            <select id="specimen-select" required>
+                                <option value="" disabled selected>Choose a plate...</option>
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Edition Size</label>
+                            <select required>
+                                <option value="a3">A3+ Collector Edition</option>
+                                <option value="a2">A2 Museum Edition</option>
+                                <option value="a1">A1 Grand Edition</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit Inquiry</button>
+                    </form>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 .ac. All rights reserved.</p>
+    <footer class="botanical-footer">
+        <div class="footer-content">
+            <div class="footer-badge">
+                <i class="fa-solid fa-award"></i> ISO 9706 Archival Preservation Standard
+            </div>
+            <p>&copy; 2024 Anmol Creation (.ac) • Botanical Collection Index</p>
         </div>
     </footer>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="#biomes" class="bottom-tab" onclick="document.getElementById('btn-biomes').click()"><i class="fa-solid fa-layer-group"></i><span>Biomes</span></a>
+        <a href="#gallery-container" class="bottom-tab active" onclick="document.getElementById('btn-grid').click()"><i class="fa-solid fa-border-all"></i><span>Herbarium</span></a>
+        <a href="#praxis" class="bottom-tab"><i class="fa-solid fa-book-open"></i><span>Praxis</span></a>
+        <a href="#acquire" class="bottom-tab"><i class="fa-solid fa-envelope-open-text"></i><span>Acquire</span></a>
+    </nav>
+
+    <!-- LIGHTBOX -->
+    <div id="botanical-lightbox" class="b-lightbox">
+        <button class="b-lightbox-close">&times;</button>
+        <div class="b-lightbox-content">
+            <img id="b-lightbox-img" src="" alt="">
+            <div id="b-lightbox-meta" class="b-lightbox-meta">
+                <!-- Data injected by JS -->
+            </div>
+        </div>
+    </div>
 
     <script src="js/theme.js"></script>
     <script src="js/photography.js"></script>
