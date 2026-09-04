@@ -1,22 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Cloudinary setup
+    const CLOUD_NAME = 'daxgt0qfj'; // Use standard if env isn't passed, though frontend shouldn't need secret
 
-    // --- DATA: 14 Photographic Studies ---
-    const botanicalData = [
-        { id: '#NAT-01', cat: 'Flora & Petals', title: 'Magenta Moss-Rose', common: 'Portulaca Grandiflora', exif: '90mm • f/2.8 • 1/400s • Morning Sunlight', url: 'https://images.unsplash.com/photo-1550159930-40066082a4fc?w=800&q=80' },
-        { id: '#NAT-02', cat: 'Flora & Petals', title: 'Madagascar Periwinkle', common: 'Catharanthus Roseus', exif: 'Macro • f/3.2 • 1/640s • High-Key', url: 'https://images.unsplash.com/photo-1507567794595-50e50d60d3fc?w=800&q=80' },
-        { id: '#NAT-03', cat: 'Flora & Petals', title: 'Madhumalti Creeper', common: 'Combretum Indicum', exif: '50mm • f/2.2 • Dappled Twilight', url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80' },
-        { id: '#NAT-04', cat: 'Dew Meniscus & Macro', title: 'Jade Dew Constellation', common: 'Crassula Ovata Drops', exif: '90mm • f/4.0 • 1/200s • Morning Dew', url: 'https://images.unsplash.com/photo-1469122312224-c5846569feb1?w=800&q=80' },
-        { id: '#NAT-05', cat: 'Dew Meniscus & Macro', title: 'Radial Seed Geometries', common: 'Fibonacci Pappus Sphere', exif: 'f/2.8 • 1/800s • Specular Ambient', url: 'https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=800&q=80' },
-        { id: '#NAT-06', cat: 'Sacred Herbal & Understory', title: 'Secret Forest Petal', common: 'Micro Calyx in Peat Soil', exif: 'f/2.0 • 1/250s • Forest Floor Humus', url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80' },
-        { id: '#NAT-07', cat: 'Canopy & Celestial Sky', title: 'Twilight Canopy Arch', common: 'Crescent Moon Silhouette', exif: '35mm • f/4.0 • Nautical Dusk', url: 'https://images.unsplash.com/photo-1444464666168-49b6288851cb?w=800&q=80' },
-        { id: '#NAT-08', cat: 'Sacred Herbal & Understory', title: 'Sacred Krishna Tulsi', common: 'Ocimum Sanctum Nocturne', exif: 'f/1.8 • 1/60s • ISO 400 • Midnight Starlight', url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' },
-        { id: '#NAT-09', cat: 'Sacred Herbal & Understory', title: 'Tender Murraya Sapling', common: 'Murraya Koenigii in Clay Pot', exif: 'f/2.4 • 1/500s • Morning Terracotta', url: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80' },
-        { id: '#NAT-10', cat: 'Dew Meniscus & Macro', title: 'Wild Groundcover Gloss', common: 'Oxalis & Forest Clover', exif: 'f/2.8 • 1/350s • Dewfall Atmosphere', url: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80' },
-        { id: '#NAT-11', cat: 'Canopy & Celestial Sky', title: 'Azure Sky & Cumulus', common: 'Stratospheric Vapor Motion', exif: '24mm • f/8.0 • High Noon Radiance', url: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800&q=80' },
-        { id: '#NAT-12', cat: 'Canopy & Celestial Sky', title: 'Indigo Horizon Bloom', common: 'Skyward Solitary Calyx', exif: 'f/3.5 • 1/1000s • Daylight Vault', url: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80' },
-        { id: '#NAT-13', cat: 'Dew Meniscus & Macro', title: 'Tulsi Deep Venation', common: 'Nocturnal Anthocyanin Stem', exif: 'f/1.8 • 1/45s • Night Humus', url: 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?w=800&q=80' },
-        { id: '#NAT-14', cat: 'Flora & Petals', title: 'Portulaca Corolla Core', common: 'Sun Rose Fibonacci Stamen', exif: 'f/2.8 • 1/600s • Diffused Solar', url: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80' }
+    // We will dynamically fetch these files and construct botanicalData
+    const dataSources = [
+        { id: 'nature', title: 'Nature & Landscapes', file: 'data/nature.json', cat: 'Nature' },
+        { id: 'macro', title: 'Macro & Details', file: 'data/macro.json', cat: 'Macro' },
+        { id: 'portraits', title: 'Portraits & Subjects', file: 'data/portraits.json', cat: 'Portraits' },
+        { id: 'wildlife', title: 'Wildlife & Pets', file: 'data/wildlife.json', cat: 'Wildlife' },
+        { id: 'street', title: 'Street & Urban', file: 'data/street.json', cat: 'Street' },
+        { id: 'events', title: 'Events & Culture', file: 'data/events.json', cat: 'Events' },
+        { id: 'product', title: 'Products & Objects', file: 'data/product.json', cat: 'Products' }
     ];
+
+    let botanicalData = [];
 
     // --- DOM ELEMENTS ---
     const btnGrid = document.getElementById('btn-grid');
@@ -33,11 +30,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxMeta = document.getElementById('b-lightbox-meta');
     const lightboxClose = document.querySelector('.b-lightbox-close');
 
+    // --- FETCH DATA ---
+    async function loadCloudinaryData() {
+        for (const source of dataSources) {
+            try {
+                const response = await fetch(source.file);
+                if (!response.ok) {
+                    console.warn(`Could not load ${source.file}`);
+                    continue;
+                }
+                const data = await response.json();
+
+                // Map Cloudinary response to Botanical Data format
+                data.forEach((item, index) => {
+                    const id = `#${source.id.toUpperCase().substring(0,3)}-${String(index + 1).padStart(2, '0')}`;
+
+                    const url = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/q_auto,f_auto,w_800/${item.public_id}.${item.format}`;
+                    const fullUrl = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/q_auto,f_auto/${item.public_id}.${item.format}`;
+
+                    // Format names from public_id or display_name
+                    let title = item.display_name || item.public_id.split('/').pop();
+                    title = title.replace(/[_-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase()); // Capitalize words
+
+                    botanicalData.push({
+                        id: id,
+                        cat: source.title,
+                        title: title,
+                        common: item.sub_category && item.sub_category !== 'Uncategorized' ? item.sub_category : source.cat,
+                        exif: `${item.width}x${item.height} • ${item.format.toUpperCase()}`, // fallback exif
+                        url: url,
+                        fullUrl: fullUrl
+                    });
+                });
+            } catch (error) {
+                console.error(`Error parsing ${source.file}:`, error);
+            }
+        }
+
+        // Shuffle if you want mixed, or keep categorized. Since we have biomes which groups by category,
+        // and grid which mixes, we will shuffle the overall array for the grid.
+        renderGrid();
+        renderBiomes();
+    }
+
+    // Helper: Fisher-Yates Shuffle
+    function shuffleArray(array) {
+        let shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
     // --- RENDER FUNCTIONS ---
 
     function renderGrid() {
         gridContainer.innerHTML = '';
-        botanicalData.forEach(item => {
+
+        if (botanicalData.length === 0) {
+             gridContainer.innerHTML = '<p style="color:var(--b-text-secondary); padding: 2rem;">No specimens found. Please check data source.</p>';
+             return;
+        }
+
+        const shuffledData = shuffleArray(botanicalData);
+
+        shuffledData.forEach(item => {
             const card = document.createElement('div');
             card.className = 'h-card';
             card.innerHTML = `
@@ -70,11 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderBiomes() {
         biomesContainer.innerHTML = '';
 
-        // Group by Category
-        const categories = [...new Set(botanicalData.map(item => item.cat))];
+        // Group by Category (using dataSources order)
+        const categories = dataSources.map(s => s.title);
 
         categories.forEach(cat => {
             const itemsInCat = botanicalData.filter(i => i.cat === cat);
+
+            if (itemsInCat.length === 0) return;
 
             const row = document.createElement('div');
             row.className = 'biome-row';
@@ -134,12 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    btnGrid.addEventListener('click', () => switchView('grid'));
-    btnBiomes.addEventListener('click', () => switchView('biomes'));
+    if(btnGrid && btnBiomes) {
+        btnGrid.addEventListener('click', () => switchView('grid'));
+        btnBiomes.addEventListener('click', () => switchView('biomes'));
+    }
 
     // --- LIGHTBOX LOGIC ---
     function openLightbox(item) {
-        lightboxImg.src = item.url.replace('w=800', 'w=1600'); // Load higher res
+        lightboxImg.src = item.fullUrl; // Load higher res
         lightboxMeta.innerHTML = `
             <h3>${item.title}</h3>
             <p>${item.id} • ${item.exif}</p>
@@ -154,26 +216,37 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { lightboxImg.src = ''; }, 300);
     }
 
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
     });
 
     // Inspection button on Hero
-    document.querySelector('.btn-inspect').addEventListener('click', () => {
-         const heroItem = botanicalData[0]; // #NAT-01 fallback or specific
-         openLightbox({
-             url: document.querySelector('.hero-img').src,
-             title: 'The Dew Sphere & Micro Wanderer',
-             id: '#NAT-00',
-             exif: '90mm Macro • f/2.8 • 1/320s • ISO 100'
-         });
-    });
+    const inspectBtn = document.querySelector('.btn-inspect');
+    if (inspectBtn) {
+        inspectBtn.addEventListener('click', () => {
+             // Let's use the first available data item or a fallback
+             const heroItem = botanicalData.length > 0 ? botanicalData[0] : null;
+
+             if (heroItem) {
+                 openLightbox(heroItem);
+             } else {
+                 // Fallback if data not loaded
+                 openLightbox({
+                     fullUrl: document.querySelector('.hero-img').src,
+                     title: 'The Dew Sphere & Micro Wanderer',
+                     id: '#NAT-00',
+                     exif: '90mm Macro • f/2.8 • 1/320s • ISO 100'
+                 });
+             }
+        });
+    }
 
     // --- INITIALIZE ---
-    renderGrid();
-    renderBiomes();
+    loadCloudinaryData();
 });
