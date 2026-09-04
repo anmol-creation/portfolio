@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sketch Art Gallery - anmolcreations</title>
+    <title>Sketch Art: Shadows & Light - Anmol Creation</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/sketch-art.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Google tracking code -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
@@ -16,59 +17,149 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-3565X5KNFD');
     </script>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
-                <div class="header-top">
-        <a href="https://anmolcreations.vercel.app/" class="brand-logo">.ac</a>
-        <div class="header-actions">
-            <button id="ai-tools" class="theme-toggle" aria-label="AI Tools" title="AI Tools" onclick="window.location.href='ai-work.html'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
-            </button>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <header class="museum-header">
+        <div class="header-inner">
+            <div class="header-left">
+                <a href="index.html" class="brand-logo">.ac</a>
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+
+            <div class="header-center desktop-only">
+                <div class="active-tab">
+                    <span class="indicator-badge"></span>
+                    CURATED EXHIBITION
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="room-counter desktop-only">Exhibition 01 // Hand-Drawn Graphite</div>
+                <button id="spotlight-dimmer" class="icon-btn" aria-label="Toggle Illumination">
+                    <i class="fas fa-lightbulb"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle mobile-only">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-    </div>
-    <hr class="header-divider">
-    <div class="header-controls">
-        <a href="index.html" class="back-link">Back to Portfolio</a>
-    </div>
-</div>
+
+        <!-- Mobile Bottom Tab Bar -->
+        <nav class="mobile-tab-bar mobile-only">
+            <a href="#" class="tab-item active"><i class="fas fa-door-open"></i>Rooms</a>
+            <a href="#" class="tab-item"><i class="fas fa-archive"></i>Archive</a>
+            <a href="#" class="tab-item"><i class="fas fa-book"></i>Monograph</a>
+            <a href="#" class="tab-item"><i class="fas fa-key"></i>Vault</a>
+        </nav>
     </header>
 
-    <main>
-        <section class="gallery-header-section">
-            <div class="container">
-                <h1 class="gallery-title">Sketch Art</h1>
-                <p class="gallery-subtitle">A collection of hand-drawn sketches and studies.</p>
+    <main class="museum-main">
+        <!-- Exhibition Hero / Spotlight Pedestal -->
+        <section class="hero-pedestal">
+            <div class="hero-content">
+                <div class="hero-text-block">
+                    <div class="header-tag">SOLO EXHIBITION • ANMOL AGARWAL <span class="tag-divider">|</span> 16 ORIGINALS CURATED • 250 GSM ACID-FREE COTTON RAG</div>
+                    <h1 class="exhibition-title">Sketch Art:<br>Shadows & Light</h1>
+                    <p class="curatorial-desc">A deep exploration of tonality, form, and emotion through the raw medium of graphite and charcoal. This curated selection bridges the gap between hyper-realism and expressive gesture.</p>
+                </div>
+
+                <div class="featured-masterpiece" id="featured-masterpiece">
+                    <!-- Injected via JS -->
+                    <div class="loading-state">Positioning Masterpiece...</div>
+                </div>
             </div>
         </section>
 
-        <section class="gallery-section">
-            <div class="container">
+        <!-- Curated Exhibition Gallery Grid & Filter System -->
+        <section class="exhibition-gallery">
+            <div class="gallery-container">
+
+                <div class="filter-system">
+                    <button class="category-pill active" data-filter="all">All Studies (16)</button>
+                    <button class="category-pill" data-filter="spiritual">Spiritual & Mythic</button>
+                    <button class="category-pill" data-filter="cinematic">Cinematic & Pop</button>
+                    <button class="category-pill" data-filter="anatomy">Anatomy & Wildlife</button>
+                    <button class="category-pill" data-filter="conceptual">Conceptual</button>
+                </div>
+
                 <div id="gallery-grid" class="gallery-grid">
                     <!-- Images will be injected here via JS -->
-                    <div class="loading-state">Loading gallery...</div>
+                    <div class="loading-state">Loading gallery archive...</div>
+                </div>
+
+                <!-- Unlock Vault Card/CTA -->
+                <div class="vault-cta-wrapper">
+                     <button class="vault-cta" onclick="alert('Vault passcode system coming soon.')">
+                         <i class="fas fa-lock"></i> Unlock Entire 16-Piece Vault
+                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Studio Discipline & Craft Section -->
+        <section class="studio-discipline">
+            <div class="discipline-container">
+                <div class="discipline-header">
+                    <h2 class="section-title">The Anatomy of Graphite</h2>
+                    <p class="section-subtitle">A glimpse into the drafting process and studio methodology.</p>
+                </div>
+
+                <div class="technique-tiers">
+                    <div class="tier-card">
+                        <div class="tier-num">01.</div>
+                        <h3 class="tier-title">Anatomical Under-Drawing</h3>
+                        <p class="tier-desc">Establishing the structural foundation and proportion using hard grades (2H - HB).</p>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-num">02.</div>
+                        <h3 class="tier-title">Tonal Sculpting & Planes</h3>
+                        <p class="tier-desc">Building volume and defining light source with mid-tone graphite (2B - 6B).</p>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-num">03.</div>
+                        <h3 class="tier-title">Atmospheric Occlusion</h3>
+                        <p class="tier-desc">Pushing the darkest values and defining sharp contrasts using (8B - 10B Charcoal).</p>
+                    </div>
+                </div>
+
+                <div class="artist-studio-card">
+                    <div class="artist-info">
+                        <h3 class="artist-name">Anmol Agarwal</h3>
+                        <p class="artist-bio">Visual artist specializing in hyper-realistic and expressive graphite & charcoal portraiture.</p>
+                        <div class="social-links">
+                            <a href="https://instagram.com/anmolagarwalart" target="_blank" class="verified-link"><i class="fab fa-instagram"></i> @anmolagarwalart <i class="fas fa-check-circle verified-badge"></i></a>
+                            <a href="https://youtube.com/AnmolAgarwalArt" target="_blank" class="verified-link"><i class="fab fa-youtube"></i> Anmol Agarwal Art <i class="fas fa-check-circle verified-badge"></i></a>
+                        </div>
+                    </div>
+                    <div class="commission-box">
+                        <h4>Private Commission Studio</h4>
+                        <p>Currently accepting waitlist for bespoke graphite portraiture.</p>
+                        <a href="mailto:inquiry@anmolcreations.com" class="inquiry-btn">Submit Inquiry</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <button class="lightbox-close" aria-label="Close">&times;</button>
-        <img id="lightbox-img" src="" alt="Full view">
+    <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+        <button class="lightbox-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Full Artwork View">
+            <div id="lightbox-metadata" class="lightbox-metadata">
+                <!-- Injected via JS -->
+            </div>
+        </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 .ac. All rights reserved.</p>
+    <footer class="museum-footer">
+        <div class="footer-content">
+            <p class="archival-watermark">Anmol Creation Private Archive • All Works Archivally Fixed</p>
+            <div class="provenance-badge"><i class="fas fa-shield-alt"></i> Copyright & Provenance Verified</div>
         </div>
     </footer>
 
