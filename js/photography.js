@@ -1,307 +1,179 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const categoriesContainer = document.getElementById('photography-categories');
 
-    // Toggle Elements
-    const layoutToggle = document.getElementById('layout-toggle');
-    const labelMixed = document.getElementById('label-mixed');
-    const labelCategorized = document.getElementById('label-categorized');
-    const mixedGallerySection = document.getElementById('mixed-gallery-section');
-    const mixedGalleryGrid = document.getElementById('mixed-gallery-grid');
-
-    // Lightbox Elements
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.lightbox-close');
-
-    // Categories Configuration
-    const categories = [
-        {
-            id: 'portraits',
-            title: 'Portraits',
-            link: 'portraits.html',
-            dataSource: 'data/portraits.json', // Will fetch real data
-            isDummy: false
-        },
-        {
-            id: 'nature',
-            title: 'Nature & Landscapes',
-            link: 'nature.html',
-            dataSource: 'data/nature.json',
-            isDummy: false
-        },
-        {
-            id: 'street',
-            title: 'Street Photography',
-            link: 'street.html',
-            dataSource: 'data/street.json',
-            isDummy: false
-        },
-        {
-            id: 'macro',
-            title: 'Macro & Details',
-            link: 'macro.html',
-            dataSource: 'data/macro.json',
-            isDummy: false
-        },
-        {
-            id: 'events',
-            title: 'Events & Weddings',
-            link: 'events.html',
-            dataSource: 'data/events.json',
-            isDummy: false
-        },
-        {
-            id: 'wildlife',
-            title: 'Wildlife & Pets',
-            link: 'wildlife.html',
-            dataSource: 'data/wildlife.json',
-            isDummy: false
-        },
-        {
-            id: 'product',
-            title: 'Product & Food',
-            link: 'product.html',
-            dataSource: 'data/product.json',
-            isDummy: false
-        }
+    // --- DATA: 14 Photographic Studies ---
+    const botanicalData = [
+        { id: '#NAT-01', cat: 'Flora & Petals', title: 'Magenta Moss-Rose', common: 'Portulaca Grandiflora', exif: '90mm • f/2.8 • 1/400s • Morning Sunlight', url: 'https://images.unsplash.com/photo-1550159930-40066082a4fc?w=800&q=80' },
+        { id: '#NAT-02', cat: 'Flora & Petals', title: 'Madagascar Periwinkle', common: 'Catharanthus Roseus', exif: 'Macro • f/3.2 • 1/640s • High-Key', url: 'https://images.unsplash.com/photo-1507567794595-50e50d60d3fc?w=800&q=80' },
+        { id: '#NAT-03', cat: 'Flora & Petals', title: 'Madhumalti Creeper', common: 'Combretum Indicum', exif: '50mm • f/2.2 • Dappled Twilight', url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80' },
+        { id: '#NAT-04', cat: 'Dew Meniscus & Macro', title: 'Jade Dew Constellation', common: 'Crassula Ovata Drops', exif: '90mm • f/4.0 • 1/200s • Morning Dew', url: 'https://images.unsplash.com/photo-1469122312224-c5846569feb1?w=800&q=80' },
+        { id: '#NAT-05', cat: 'Dew Meniscus & Macro', title: 'Radial Seed Geometries', common: 'Fibonacci Pappus Sphere', exif: 'f/2.8 • 1/800s • Specular Ambient', url: 'https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=800&q=80' },
+        { id: '#NAT-06', cat: 'Sacred Herbal & Understory', title: 'Secret Forest Petal', common: 'Micro Calyx in Peat Soil', exif: 'f/2.0 • 1/250s • Forest Floor Humus', url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80' },
+        { id: '#NAT-07', cat: 'Canopy & Celestial Sky', title: 'Twilight Canopy Arch', common: 'Crescent Moon Silhouette', exif: '35mm • f/4.0 • Nautical Dusk', url: 'https://images.unsplash.com/photo-1444464666168-49b6288851cb?w=800&q=80' },
+        { id: '#NAT-08', cat: 'Sacred Herbal & Understory', title: 'Sacred Krishna Tulsi', common: 'Ocimum Sanctum Nocturne', exif: 'f/1.8 • 1/60s • ISO 400 • Midnight Starlight', url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' },
+        { id: '#NAT-09', cat: 'Sacred Herbal & Understory', title: 'Tender Murraya Sapling', common: 'Murraya Koenigii in Clay Pot', exif: 'f/2.4 • 1/500s • Morning Terracotta', url: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80' },
+        { id: '#NAT-10', cat: 'Dew Meniscus & Macro', title: 'Wild Groundcover Gloss', common: 'Oxalis & Forest Clover', exif: 'f/2.8 • 1/350s • Dewfall Atmosphere', url: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80' },
+        { id: '#NAT-11', cat: 'Canopy & Celestial Sky', title: 'Azure Sky & Cumulus', common: 'Stratospheric Vapor Motion', exif: '24mm • f/8.0 • High Noon Radiance', url: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800&q=80' },
+        { id: '#NAT-12', cat: 'Canopy & Celestial Sky', title: 'Indigo Horizon Bloom', common: 'Skyward Solitary Calyx', exif: 'f/3.5 • 1/1000s • Daylight Vault', url: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80' },
+        { id: '#NAT-13', cat: 'Dew Meniscus & Macro', title: 'Tulsi Deep Venation', common: 'Nocturnal Anthocyanin Stem', exif: 'f/1.8 • 1/45s • Night Humus', url: 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?w=800&q=80' },
+        { id: '#NAT-14', cat: 'Flora & Petals', title: 'Portulaca Corolla Core', common: 'Sun Rose Fibonacci Stamen', exif: 'f/2.8 • 1/600s • Diffused Solar', url: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80' }
     ];
 
-    const CLOUD_NAME = 'daxgt0qfj';
-    let allMixedResources = []; // Store all fetched data for the mixed view
+    // --- DOM ELEMENTS ---
+    const btnGrid = document.getElementById('btn-grid');
+    const btnBiomes = document.getElementById('btn-biomes');
+    const viewGrid = document.getElementById('view-grid');
+    const viewBiomes = document.getElementById('view-biomes');
+    const gridContainer = document.getElementById('herbarium-grid');
+    const biomesContainer = document.getElementById('biomes-container');
+    const selectSpecimen = document.getElementById('specimen-select');
 
-    // Dummy Image Placeholders (Unsplash Source API)
-    const dummyImages = {
-        'nature': [
-            'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80',
-            'https://images.unsplash.com/photo-1444464666168-49b6288851cb?w=800&q=80',
-            'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80',
-            'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
-            'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80'
-        ],
-        'street': [
-            'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800&q=80',
-            'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80',
-            'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?w=800&q=80',
-            'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80',
-            'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=800&q=80'
-        ],
-        'macro': [
-            'https://images.unsplash.com/photo-1550159930-40066082a4fc?w=800&q=80',
-            'https://images.unsplash.com/photo-1507567794595-50e50d60d3fc?w=800&q=80',
-            'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
-            'https://images.unsplash.com/photo-1469122312224-c5846569feb1?w=800&q=80',
-            'https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=800&q=80'
-        ],
-        'events': [
-            'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80',
-            'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
-            'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
-            'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80',
-            'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80'
-        ],
-        'wildlife': [
-            'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=80',
-            'https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=800&q=80',
-            'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&q=80',
-            'https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=800&q=80',
-            'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=800&q=80'
-        ],
-        'product': [
-            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
-            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
-            'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&q=80',
-            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',
-            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&q=80'
-        ]
-    };
+    // Lightbox
+    const lightbox = document.getElementById('botanical-lightbox');
+    const lightboxImg = document.getElementById('b-lightbox-img');
+    const lightboxMeta = document.getElementById('b-lightbox-meta');
+    const lightboxClose = document.querySelector('.b-lightbox-close');
 
-    // Build the UI for a single row
-    function createCategoryRow(category, images) {
-        if (!images || images.length === 0) return;
+    // --- RENDER FUNCTIONS ---
 
-        const rowDiv = document.createElement('div');
-        rowDiv.className = 'photo-category-row';
-
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'photo-category-header';
-
-        const titleLink = document.createElement('a');
-        titleLink.href = category.link;
-        titleLink.className = 'photo-category-title';
-        titleLink.textContent = category.title;
-
-        const viewAllLink = document.createElement('a');
-        viewAllLink.href = category.link;
-        viewAllLink.className = 'photo-category-view-all';
-        viewAllLink.textContent = 'View All >';
-
-        headerDiv.appendChild(titleLink);
-        // Only show "View All" if it's not a dummy link
-        if (category.link !== '#') {
-            headerDiv.appendChild(viewAllLink);
-        }
-        rowDiv.appendChild(headerDiv);
-
-        const scrollContainer = document.createElement('div');
-        scrollContainer.className = 'photo-scroll-container';
-
-        images.forEach(imgData => {
+    function renderGrid() {
+        gridContainer.innerHTML = '';
+        botanicalData.forEach(item => {
             const card = document.createElement('div');
-            card.className = 'photo-card';
+            card.className = 'h-card';
+            card.innerHTML = `
+                <div class="h-card-top">
+                    <span class="specimen-code">${item.id}</span>
+                    <span class="specimen-cat">${item.cat}</span>
+                </div>
+                <div class="h-img-container">
+                    <img src="${item.url}" alt="${item.title}" loading="lazy">
+                </div>
+                <div class="h-card-bottom">
+                    <span class="h-exif">${item.exif}</span>
+                    <h3 class="h-title">${item.title}</h3>
+                    <span class="h-common">${item.common}</span>
+                </div>
+            `;
 
-            const img = document.createElement('img');
-            img.loading = 'lazy';
+            // Add Lightbox Event
+            card.addEventListener('click', () => openLightbox(item));
+            gridContainer.appendChild(card);
 
-            if (category.isDummy) {
-                img.src = imgData; // Direct URL for dummy
-                img.dataset.full = imgData.replace('w=800', 'w=1600'); // Higher res for lightbox
-            } else {
-                img.src = imgData.url; // Cloudinary URL
-                img.dataset.full = imgData.url.replace('/w_800,q_auto,f_auto/', '/q_auto,f_auto/'); // Adjust transformation for full size
-            }
-            img.alt = category.title + ' Image';
+            // Populate Form Select
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = `${item.id} - ${item.title}`;
+            if(selectSpecimen) selectSpecimen.appendChild(option);
+        });
+    }
 
-            // Lightbox Event
-            card.addEventListener('click', () => openLightbox(img.dataset.full));
+    function renderBiomes() {
+        biomesContainer.innerHTML = '';
 
-            card.appendChild(img);
-            scrollContainer.appendChild(card);
+        // Group by Category
+        const categories = [...new Set(botanicalData.map(item => item.cat))];
+
+        categories.forEach(cat => {
+            const itemsInCat = botanicalData.filter(i => i.cat === cat);
+
+            const row = document.createElement('div');
+            row.className = 'biome-row';
+
+            row.innerHTML = `
+                <h3>${cat} • <span style="font-size: 0.9rem; color: var(--b-text-secondary); font-family: var(--b-font-ui); font-style: normal;">${itemsInCat.length} Specimens</span></h3>
+                <div class="biome-carousel">
+                    ${itemsInCat.map(item => `
+                        <div class="biome-card" data-id="${item.id}">
+                            <img src="${item.url}" alt="${item.title}" loading="lazy">
+                            <div class="biome-card-overlay">
+                                <h4>${item.title}</h4>
+                                <span>${item.id}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            biomesContainer.appendChild(row);
         });
 
-        rowDiv.appendChild(scrollContainer);
-        categoriesContainer.appendChild(rowDiv);
-    }
-
-    // Fetch and render data
-    async function initDashboard() {
-        for (const cat of categories) {
-            if (cat.isDummy) {
-                createCategoryRow(cat, dummyImages[cat.id]);
-                // Add dummy images to mixed pool
-                const formattedDummies = dummyImages[cat.id].map(url => ({
-                    isDummy: true,
-                    url: url,
-                    fullUrl: url.replace('w=800', 'w=1600')
-                }));
-                allMixedResources = allMixedResources.concat(formattedDummies);
-            } else {
-                try {
-                    const response = await fetch(cat.dataSource);
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    const data = await response.json();
-
-                    // Add real images to mixed pool
-                    const formattedReal = data.map(res => ({
-                        isDummy: false,
-                        url: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/q_auto,f_auto,w_800/${res.public_id}.${res.format}`,
-                        fullUrl: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/q_auto,f_auto/${res.public_id}.${res.format}`
-                    }));
-                    allMixedResources = allMixedResources.concat(formattedReal);
-
-                    // Take up to 10 images for the horizontal scroll
-                    createCategoryRow(cat, data.slice(0, 10));
-                } catch (error) {
-                    console.error(`Error loading data for ${cat.title}:`, error);
-                }
-            }
-        }
-
-        // Shuffle the mixed resources to create a truly mixed pinterest view
-        shuffleArray(allMixedResources);
-    }
-
-    // Render Mixed View (Pinterest Style)
-    function renderMixedGallery() {
-        mixedGalleryGrid.innerHTML = ''; // Clear loading state
-
-        console.log("allMixedResources length: ", allMixedResources.length); // DEBUG
-
-        if (!allMixedResources || allMixedResources.length === 0) {
-            mixedGalleryGrid.innerHTML = '<div class="loading-state">No photos found.</div>';
-            return;
-        }
-
-        allMixedResources.forEach((res, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            // Stagger animation
-            item.style.animationDelay = `${(index % 10) * 50}ms`;
-
-            const img = document.createElement('img');
-            img.className = 'gallery-img';
-            img.src = res.url;
-            img.alt = 'Photography Mixed Image';
-            img.loading = 'lazy';
-
-            // Lightbox Click
-            item.addEventListener('click', () => {
-                openLightbox(res.fullUrl);
+        // Add Lightbox Event to Biome Cards
+        document.querySelectorAll('.biome-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.getAttribute('data-id');
+                const item = botanicalData.find(i => i.id === id);
+                if(item) openLightbox(item);
             });
-
-            item.appendChild(img);
-            mixedGalleryGrid.appendChild(item);
         });
     }
 
-    // Helper: Fisher-Yates Shuffle
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+    // --- VIEW CONTROLLER LOGIC ---
+    function switchView(view) {
+        if (view === 'grid') {
+            btnGrid.classList.add('active');
+            btnBiomes.classList.remove('active');
+            viewGrid.classList.add('active');
+            viewGrid.classList.remove('hidden');
+            viewBiomes.classList.remove('active');
+            viewBiomes.classList.add('hidden');
+
+            // Update mobile bottom nav active state visually
+            document.querySelectorAll('.bottom-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.bottom-tab[href="#gallery-container"]').classList.add('active');
+
+        } else if (view === 'biomes') {
+            btnBiomes.classList.add('active');
+            btnGrid.classList.remove('active');
+            viewBiomes.classList.add('active');
+            viewBiomes.classList.remove('hidden');
+            viewGrid.classList.remove('active');
+            viewGrid.classList.add('hidden');
+
+            // Update mobile bottom nav active state visually
+            document.querySelectorAll('.bottom-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.bottom-tab[href="#biomes"]').classList.add('active');
         }
     }
 
-    // Toggle Listener
-    layoutToggle.addEventListener('change', (e) => {
-        if (e.target.checked) {
-            // Switch to Mixed View
-            labelCategorized.classList.remove('active');
-            labelMixed.classList.add('active');
-            categoriesContainer.style.display = 'none';
-            mixedGallerySection.style.display = 'block';
+    btnGrid.addEventListener('click', () => switchView('grid'));
+    btnBiomes.addEventListener('click', () => switchView('biomes'));
 
-            // Render if empty
-            if (mixedGalleryGrid.children.length <= 1) { // includes loading div
-                renderMixedGallery();
-            }
-        } else {
-            // Switch to Categorized View
-            labelMixed.classList.remove('active');
-            labelCategorized.classList.add('active');
-            mixedGallerySection.style.display = 'none';
-            categoriesContainer.style.display = 'block';
-        }
-    });
-
-    // Lightbox Logic
-    function openLightbox(imgSrc) {
-        lightboxImg.src = imgSrc;
+    // --- LIGHTBOX LOGIC ---
+    function openLightbox(item) {
+        lightboxImg.src = item.url.replace('w=800', 'w=1600'); // Load higher res
+        lightboxMeta.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.id} • ${item.exif}</p>
+        `;
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-        setTimeout(() => {
-            lightboxImg.src = '';
-        }, 300); // Wait for transition
+        setTimeout(() => { lightboxImg.src = ''; }, 300);
     }
 
-    closeBtn.addEventListener('click', closeLightbox);
-
+    lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
+        if (e.target === lightbox) closeLightbox();
     });
-
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
+        if (e.key === 'Escape') closeLightbox();
     });
 
-    // Start
-    initDashboard();
+    // Inspection button on Hero
+    document.querySelector('.btn-inspect').addEventListener('click', () => {
+         const heroItem = botanicalData[0]; // #NAT-01 fallback or specific
+         openLightbox({
+             url: document.querySelector('.hero-img').src,
+             title: 'The Dew Sphere & Micro Wanderer',
+             id: '#NAT-00',
+             exif: '90mm Macro • f/2.8 • 1/320s • ISO 100'
+         });
+    });
+
+    // --- INITIALIZE ---
+    renderGrid();
+    renderBiomes();
 });
